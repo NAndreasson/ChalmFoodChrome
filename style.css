@@ -1,0 +1,76 @@
+body {
+        font-family: sans-serif;
+        color: #18A6ED;
+}
+
+#wrapper {
+        margin: 0 auto;
+        position: relative;
+        width: 300px;
+}
+
+#container {
+        box-sizing: border-box;
+        width: 300px;
+        padding: 20px;
+        overflow: hidden;
+        background: #fff;
+}
+
+#container dl {
+        margin: 0 auto;
+}
+
+dt {
+    line-height: 30px;
+    font-weight: bold;
+}
+
+dl {
+
+}
+
+nav {
+	text-align: center;
+}
+nav ul {
+	padding-left: 0;
+	width: 300px;
+	list-style: none;
+}
+nav ul li {
+	display: inline-block;
+	margin-right: 10px;
+}
+
+a {
+	color: #187FED;
+    text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.active {
+	text-decoration: underline;
+}
+
+.menu {
+        float: left;
+        width: 300px;
+}
+
+.menu h2 {
+        width: 260px;
+        margin-top: 0px;
+        text-align: center; 
+        margin-right: 0;
+}
+
+#cartridge {
+        height: 200px;
+        width: 2000px;
+        overflow: hidden;
+        position: relative;
+}
