@@ -4,30 +4,23 @@ body {
 }
 
 #wrapper {
-        margin: 0 auto;
-        position: relative;
-        width: 300px;
+    margin: 0 auto;
+    position: relative;
 }
 
 #container {
         box-sizing: border-box;
-        width: 300px;
+        width: 320px;
         padding: 20px;
         overflow: hidden;
         background: #fff;
 }
 
-#container dl {
-        margin: 0 auto;
-}
-
-dt {
-    line-height: 30px;
-    font-weight: bold;
-}
-
-dl {
-
+#cartridge {
+    /*height: 200px;*/
+    width: 2000px;
+    overflow: hidden;
+    position: relative;
 }
 
 nav {
@@ -35,7 +28,7 @@ nav {
 }
 nav ul {
 	padding-left: 0;
-	width: 300px;
+	width: 320px;
 	list-style: none;
 }
 nav ul li {
@@ -56,21 +49,26 @@ a:hover {
 	text-decoration: underline;
 }
 
+#container dl {
+    margin: 0 auto;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+dt {
+    line-height: 30px;
+    font-weight: bold;
+}
+
 .menu {
-        float: left;
-        width: 300px;
+    box-sizing: border-box;
+    float: left;
+    width: 320px;
 }
 
 .menu h2 {
-        width: 260px;
-        margin-top: 0px;
-        text-align: center; 
-        margin-right: 0;
-}
-
-#cartridge {
-        height: 200px;
-        width: 2000px;
-        overflow: hidden;
-        position: relative;
+    width: 260px;
+    margin-top: 0px;
+    text-align: center; 
+    margin-right: 0;
 }

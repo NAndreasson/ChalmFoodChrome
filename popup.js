@@ -10,40 +10,42 @@ var lunchRetriever = {
   showDishes: function (e) {
     var dishesObj = JSON.parse(e.target.responseText);
 
-    // create documentFragment
+    // TODO create documentFragment?
 
     for (var restaurantProp in dishesObj) {
       var restaurant = dishesObj[restaurantProp]
         , title = restaurant.title
         , dishes = restaurant.dishes;
 
-      var menu = 
-            $('<div></div>').addClass('menu')
-              .append('<header></header>').append('<h2></h2>').text(title);
+      var menu = document.createElement('div')
+        , h2 = document.createElement('h2')
+        , titleNode = document.createTextNode(title);
 
-      // append the dishes as well        
+      h2.appendChild(titleNode);
+      menu.appendChild(h2);
+      menu.classList.add('menu');
 
-      $('#cartridge').append(menu);
+      // create the list for all the dishes served in this restaurant
+      var dl = document.createElement('dl');
+
+      for (var i = 0; i < dishes.length; i++) {
+        var dish = dishes[i];
+        // create dt and varl
+        var dt = document.createElement('dt')
+          , dtTitle = document.createTextNode(dish.title);
+        dt.appendChild(dtTitle);
+
+        var dd = document.createElement('dd')
+          , ddDesc = document.createTextNode(dish.desc);
+        dd.appendChild(ddDesc);
+
+        dl.appendChild(dt);
+        dl.appendChild(dd);
+      }
+      menu.appendChild(dl);
+      document.getElementById('cartridge').appendChild(menu);
     }
-
-      // var header = document.createElement('header')
-      //   , h2 = document.createElement
-      // var list = document.createElement('ul');
-
-      // // create new menu
-      // // get title as the header and such
-
-      // for (var i = 0; i < dishes.length; i++) {
-      //   var dish = dishes[i];
-      //   var listItem = document.createElement('li')
-      //     , listData = document.createTextNode(dish.title + ' ' + dish.desc);
-      //     listItem.appendChild(listData);
-      //     list.appendChild(listItem);
-      // }
-
-      // document.body.appendChild(list);
-      // console.log('restaurant', restaurant);
-    }
+  }
 
 };
 
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 (function() {
   var animationDelay = 350
-    , menuWidth = 300
+    , menuWidth = 320
     , nrOfRestaurants = 2
     , currentIndex = 0;
 
@@ -64,6 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
     $('#cartridge').animate({
       left: -menuWidth
     }, animationDelay);
+
+
+    // resize?
+
   });
 
   $('#karen').on('click', function(e) {
