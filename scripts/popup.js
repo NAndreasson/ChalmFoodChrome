@@ -8,53 +8,15 @@ var lunchRetriever = {
   },
 
   showDishes: function (e) {
-    var scriptShit = $('#restaurant-template').html();
-    var restaurantTemplate = Handlebars.compile( scriptShit );
     var dishesObj = JSON.parse(e.target.responseText);
 
-    var restaurantObj = {
-      title: 'Meck',
-      dishes: [
-        { title: 'Stek', desc: 'Mycket god!'}
-      ]
-    };
+    for (var restaurantProp in dishesObj) {
+      var restaurant = dishesObj[restaurantProp]
+        ;
 
-    $('#cartridge').append( restaurantTemplate( restaurantObj ) );
-    // TODO create documentFragment?
+      $('#cartridge').append( Handlebars.templates.restaurant( restaurant ) );
 
-    // for (var restaurantProp in dishesObj) {
-    //   var restaurant = dishesObj[restaurantProp]
-    //     , title = restaurant.title
-    //     , dishes = restaurant.dishes;
-
-    //   var menu = document.createElement('div')
-    //     , h2 = document.createElement('h2')
-    //     , titleNode = document.createTextNode(title);
-
-    //   h2.appendChild(titleNode);
-    //   menu.appendChild(h2);
-    //   menu.classList.add('menu');
-
-    //   // create the list for all the dishes served in this restaurant
-    //   var dl = document.createElement('dl');
-
-    //   for (var i = 0; i < dishes.length; i++) {
-    //     var dish = dishes[i];
-    //     // create dt and varl
-    //     var dt = document.createElement('dt')
-    //       , dtTitle = document.createTextNode(dish.title);
-    //     dt.appendChild(dtTitle);
-
-    //     var dd = document.createElement('dd')
-    //       , ddDesc = document.createTextNode(dish.desc);
-    //     dd.appendChild(ddDesc);
-
-    //     dl.appendChild(dt);
-    //     dl.appendChild(dd);
-    //   }
-    //   menu.appendChild(dl);
-    //   document.getElementById('cartridge').appendChild(menu);
-    // }
+    }
   }
 
 };
