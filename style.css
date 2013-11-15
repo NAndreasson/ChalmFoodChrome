@@ -60,6 +60,10 @@ dt {
     font-weight: bold;
 }
 
+dd {
+    color: #000;
+}
+
 .menu {
     box-sizing: border-box;
     float: left;
@@ -69,6 +73,6 @@ dt {
 .menu h2 {
     width: 260px;
     margin-top: 0px;
-    text-align: center; 
+    text-align: center;
     margin-right: 0;
 }

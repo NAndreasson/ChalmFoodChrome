@@ -8,13 +8,17 @@ var lunchRetriever = {
   },
 
   showDishes: function (e) {
-    var dishesObj = JSON.parse(e.target.responseText);
+    var dishesObj = JSON.parse(e.target.responseText)
+      , $restaurantsNav = $('#restaurants-nav')
+      , $cartridge = $('#cartridge')
+      ;
 
     for (var restaurantProp in dishesObj) {
       var restaurant = dishesObj[restaurantProp]
         ;
 
-      $('#cartridge').append( Handlebars.templates.restaurant( restaurant ) );
+      $cartridge.append( Handlebars.templates.restaurant( restaurant ) );
+      $restaurantsNav.append( Handlebars.templates.restaurantNav( restaurant ) );
 
     }
   }
@@ -29,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var animationDelay = 350
     , menuWidth = 320
     , nrOfRestaurants = 2
-    , currentIndex = 0;
+    , currentIndex = 0
+    ;
 
   $('#linsen').on('click', function(e) {
     e.preventDefault();
