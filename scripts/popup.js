@@ -1,26 +1,24 @@
 var lunchRetriever = {
 
   requestDishes: function() {
-    var req = new XMLHttpRequest();
-    req.open('GET', 'http://localhost:5000/lunch', true);
-    req.onload = this.showDishes.bind(this);
-    req.send(null);
+    $.get('http://localhost:5000/lunch', this.showDishes);
   },
 
-  showDishes: function (e) {
-    var dishesObj = JSON.parse(e.target.responseText)
+  showDishes: function (data) {
+    var restaurants = data
       , $restaurantsNav = $('#restaurants-nav')
       , $cartridge = $('#cartridge')
       ;
 
-    for (var restaurantProp in dishesObj) {
-      var restaurant = dishesObj[restaurantProp]
+    for (var restaurantProp in restaurants) {
+      var restaurant = restaurants[restaurantProp]
         ;
 
-      $cartridge.append( Handlebars.templates.restaurant( restaurant ) );
       $restaurantsNav.append( Handlebars.templates.restaurantNav( restaurant ) );
-
+      $cartridge.append( Handlebars.templates.restaurant( restaurant ) );
     }
+    // Not zen to have this here
+    $('restaurant-nav').eq(0).addClass('active');
   }
 
 };
@@ -30,32 +28,30 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 (function() {
-  var animationDelay = 350
+  var $restaurantsNav = $('#restaurants-nav')
+    , animationDelay = 350
     , menuWidth = 320
-    , nrOfRestaurants = 2
-    , currentIndex = 0
+    , activeIndex = 0
     ;
 
-  $('#linsen').on('click', function(e) {
+  $restaurantsNav.on('click', 'a', function(e) {
     e.preventDefault();
-    $('nav ul li a').removeClass('active');
-    $(this).addClass('active');
+
+    var $this = $(this)
+      , $thisIndex = $this.parent().index()
+      ;
+
+    if ($thisIndex === activeIndex) return;
+
+    $('.restaurant-nav').removeClass('active');
+    $this.addClass('active');
+
+    // need to take the current left into consideration
     $('#cartridge').animate({
-      left: -menuWidth
+      left: menuWidth * ($thisIndex > activeIndex ? -1 : 1)
     }, animationDelay);
 
-
-    // resize?
-
-  });
-
-  $('#karen').on('click', function(e) {
-    e.preventDefault();
-    $('nav ul li a').removeClass('active');
-    $(this).addClass('active');
-    $('#cartridge').animate({
-      left: 0
-    }, animationDelay);
+    activeIndex = $thisIndex;
   });
 
 })();
