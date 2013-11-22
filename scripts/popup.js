@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 (function() {
   var $restaurantsNav = $('#restaurants-nav')
+    , $cartridge = $('#cartridge')
     , animationDelay = 350
     , menuWidth = 320
     , activeIndex = 0
@@ -46,9 +47,12 @@ document.addEventListener('DOMContentLoaded', function () {
     $('.restaurant-nav').removeClass('active');
     $this.addClass('active');
 
+    var cartridgeLeftPos = $cartridge.css('left');
+    if ( cartridgeLeftPos === 'auto' ) cartridgeLeftPos = 0;
+
     // need to take the current left into consideration
-    $('#cartridge').animate({
-      left: menuWidth * ($thisIndex > activeIndex ? -1 : 1)
+    $cartridge.animate({
+      left: cartridgeLeftPos + menuWidth * ($thisIndex > activeIndex ? -1 : 1)
     }, animationDelay);
 
     activeIndex = $thisIndex;
