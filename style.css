@@ -1,6 +1,6 @@
 body {
-        font-family: sans-serif;
-        color: #18A6ED;
+    font-family: sans-serif;
+    color: #18A6ED;
 }
 
 #wrapper {
@@ -9,15 +9,14 @@ body {
 }
 
 #container {
-        box-sizing: border-box;
-        width: 320px;
-        padding: 20px;
-        overflow: hidden;
-        background: #fff;
+    box-sizing: border-box;
+    width: 320px;
+    padding: 20px;
+    overflow: hidden;
+    background: #fff;
 }
 
 #cartridge {
-    /*height: 200px;*/
     width: 2000px;
     overflow: hidden;
     position: relative;
