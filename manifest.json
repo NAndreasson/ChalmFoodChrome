@@ -4,7 +4,7 @@
   "name": "Chalmfood",
   "description": "Retrieves the dishes served in Chalmers restaurants",
   "version": "1.0",
-
+  "options_page": "options.html",
   "permissions": [
     "http://localhost:5000/lunch"
   ],
