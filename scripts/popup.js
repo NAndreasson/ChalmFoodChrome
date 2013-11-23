@@ -1,7 +1,7 @@
 var lunchRetriever = {
 
   requestDishes: function() {
-    $.get('http://localhost:5000/lunch', this.showDishes);
+    $.get('http://localhost:5000/johanneberg', this.showDishes);
   },
 
   showDishes: function (data) {
