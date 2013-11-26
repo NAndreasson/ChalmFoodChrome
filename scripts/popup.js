@@ -1,7 +1,9 @@
 var lunchRetriever = {
 
   requestDishes: function() {
-    $.get('http://localhost:5000/johanneberg', this.showDishes);
+    var campus = localStorage['campus'] || 'johanneberg';
+
+    $.get('http://localhost:5000/' + campus, this.showDishes);
   },
 
   showDishes: function (data) {
