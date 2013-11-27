@@ -20,7 +20,7 @@ var lunchRetriever = {
       $cartridge.append( Handlebars.templates.restaurant( restaurant ) );
     }
     // Not zen to have this here
-    $('restaurant-nav').eq(0).addClass('active');
+    $('.restaurant-nav').eq(0).addClass('active');
   }
 
 };
@@ -52,9 +52,11 @@ document.addEventListener('DOMContentLoaded', function () {
     var cartridgeLeftPos = $cartridge.css('left');
     if ( cartridgeLeftPos === 'auto' ) cartridgeLeftPos = 0;
 
+
+    var newLeft = parseInt(cartridgeLeftPos, 10) + menuWidth * ($thisIndex > activeIndex ? -1 : 1) + 'px';
     // need to take the current left into consideration
     $cartridge.animate({
-      left: cartridgeLeftPos + menuWidth * ($thisIndex > activeIndex ? -1 : 1)
+      left: newLeft
     }, animationDelay);
 
     activeIndex = $thisIndex;
