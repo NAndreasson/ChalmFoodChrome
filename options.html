@@ -6,17 +6,16 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    Campus:
-    <label for="johanneberg">Johanneberg</label>
+    <div id="options">
+      <ul id="campus-list">
+        <li><button>Johanneberg</button></li>
+        <li><button>Lindholmen</button></li>
+      </ul>
 
-    <input type="radio" name="campus" id="johanneberg" value="johanneberg">
+      <div id="status"></div>
+      <button id="save">Save</button>
 
-    <label for="lindholmen">Lindholmen</label>
-    <input type="radio" name="campus" id="lindholmen" value="lindholmen">
-
-
-    <div id="status"></div>
-    <button id="save">Save</button>
+    </div>
     </body>
     <script src="scripts/options.js"></script>
   </body>
