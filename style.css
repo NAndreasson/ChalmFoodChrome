@@ -16,26 +16,6 @@ body {
     background: #fff;
 }
 
-#options {
-    margin: 0 auto;
-    width: 400px;
-}
-
-#campus-list {
-    list-style: none;
-}
-
-#campus-list button {
-    cursor: pointer;
-    font-size: 20pt;
-    padding: 10px;
-    background: rgb(102, 178, 214);
-    border-radius: 27px;
-    border: 0;
-    color: white;
-    width: 400px;
-}
-
 #cartridge {
     width: 2000px;
     overflow: hidden;

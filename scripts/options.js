@@ -1,39 +1,32 @@
 // Saves options to localStorage.
-function save_options() {
-  var radios = document.getElementsByName('campus');
+function saveOption(el) {
+  var $this = $(this)
+    , campus = $this.data('campus')
+    ;
 
-  for ( var i = 0; i < radios.length; i++ ) {
-    var radio = radios[i];
+  localStorage['campus'] = campus;
 
-    if ( radio.checked ) {
-      localStorage['campus'] = radio.value;
-
-      break;
-    }
-  }
-
-  // Update status to let user know options were saved.
-  var status = document.getElementById('status');
-  status.innerHTML = 'Options Saved.';
-  setTimeout(function() {
-    status.innerHTML = '';
-  }, 750);
+  $('.campus').removeClass('active');
+  $this.addClass('active');
 }
 
 // Restores select box state to saved value from localStorage.
-function restore_options() {
+function restoreOptions() {
   var campus = localStorage['campus']
-    , radios = document.getElementsByName('campus')
+    , $campusEls = $('.campus')
     ;
 
-  for ( var i = 0; i < radios.length; i++ ) {
-    var radio = radios[i];
+  $campusEls.each(function(index) {
+    var $this = $(this);
 
-    if ( radio.value === campus ) {
-      radio.checked = true;
+    if ( $this.data('campus') === campus) {
+      $this.addClass('active')
       return;
     }
-  }
+  });
+
 }
-document.addEventListener('DOMContentLoaded', restore_options);
-document.querySelector('#save').addEventListener('click', save_options)
+document.addEventListener('DOMContentLoaded', restoreOptions);
+
+$('.campus').on('click', saveOption);
+

@@ -3,20 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <title>Chalm food</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="options.css" />
   </head>
   <body>
     <div id="options">
+      <h2>Välj campus</h2>
       <ul id="campus-list">
-        <li><button>Johanneberg</button></li>
-        <li><button>Lindholmen</button></li>
+        <li><a href="#" class="campus" data-campus="johanneberg">Johanneberg</a></li>
+        <li><a href="#" class="campus" data-campus="lindholmen">Lindholmen</a></li>
       </ul>
-
-      <div id="status"></div>
-      <button id="save">Save</button>
-
     </div>
     </body>
+
+    <script src="scripts/vendor/jquery-1.9.1.min.js"></script>
     <script src="scripts/options.js"></script>
   </body>
 </html>
