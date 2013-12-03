@@ -13,7 +13,7 @@ var lunchRetriever = {
       ;
 
     for (var restaurantProp in restaurants) {
-      var restaurant = restaurants[restaurantProp]
+      var restaurant = restaurants[ restaurantProp ]
         ;
 
       $restaurantsNav.append( Handlebars.templates.restaurantNav( restaurant ) );
@@ -25,11 +25,9 @@ var lunchRetriever = {
 
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-  lunchRetriever.requestDishes();
-});
-
 (function() {
+  lunchRetriever.requestDishes();
+
   var $restaurantsNav = $('#restaurants-nav')
     , $cartridge = $('#cartridge')
     , animationDelay = 350
