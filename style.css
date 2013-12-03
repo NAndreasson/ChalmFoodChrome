@@ -1,51 +1,31 @@
+/* Base styles */
 body {
     font-family: sans-serif;
     color: #18A6ED;
 }
 
+a {
+    color: #187FED;
+}
+
+a:hover, a.active {
+    text-decoration: none;
+}
+
+
+/* Slideshow */
 #wrapper {
-    margin: 0 auto;
-    position: relative;
+    width: 320px;
 }
 
 #container {
-    box-sizing: border-box;
-    width: 320px;
     padding: 20px;
     overflow: hidden;
-    background: #fff;
 }
 
 #cartridge {
     width: 2000px;
-    overflow: hidden;
     position: relative;
-}
-
-nav {
-	text-align: center;
-}
-nav ul {
-	padding-left: 0;
-	width: 320px;
-	list-style: none;
-}
-nav ul li {
-	display: inline-block;
-	margin-right: 10px;
-}
-
-a {
-	color: #187FED;
-    text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-.active {
-	text-decoration: underline;
 }
 
 #container dl {
@@ -64,6 +44,21 @@ dd {
     width: 250px;
 }
 
+
+nav {
+	text-align: center;
+}
+
+nav ul {
+	padding-left: 0;
+	width: 320px;
+	list-style: none;
+}
+nav ul li {
+	display: inline-block;
+	margin-right: 10px;
+}
+
 .menu {
     box-sizing: border-box;
     float: left;
@@ -76,3 +71,5 @@ dd {
     text-align: center;
     margin-right: 0;
 }
+
+/* Options */

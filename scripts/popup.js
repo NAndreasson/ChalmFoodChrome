@@ -1,31 +1,31 @@
-var lunchRetriever = {
+(function() {
+  var lunchRetriever = {
 
-  requestDishes: function() {
-    var campus = localStorage['campus'] || 'johanneberg';
+    requestDishes: function() {
+      var campus = localStorage['campus'] || 'johanneberg';
 
-    $.get('http://localhost:5000/' + campus, this.showDishes);
-  },
+      $.get('http://localhost:5000/' + campus, this.showDishes);
+    },
 
-  showDishes: function (data) {
-    var restaurants = data
-      , $restaurantsNav = $('#restaurants-nav')
-      , $cartridge = $('#cartridge')
-      ;
-
-    for (var restaurantProp in restaurants) {
-      var restaurant = restaurants[ restaurantProp ]
+    showDishes: function (data) {
+      var restaurants = data
+        , $restaurantsNav = $('#restaurants-nav')
+        , $cartridge = $('#cartridge')
         ;
 
-      $restaurantsNav.append( Handlebars.templates.restaurantNav( restaurant ) );
-      $cartridge.append( Handlebars.templates.restaurant( restaurant ) );
+      for (var restaurantProp in restaurants) {
+        var restaurant = restaurants[ restaurantProp ]
+          ;
+
+        $restaurantsNav.append( Handlebars.templates.restaurantNav( restaurant ) );
+        $cartridge.append( Handlebars.templates.restaurant( restaurant ) );
+      }
+      // Not zen to have this here
+      $('.restaurant-nav').eq(0).addClass('active');
     }
-    // Not zen to have this here
-    $('.restaurant-nav').eq(0).addClass('active');
-  }
 
-};
+  };
 
-(function() {
   lunchRetriever.requestDishes();
 
   var $restaurantsNav = $('#restaurants-nav')
