@@ -1,7 +1,6 @@
 /* Base styles */
 body {
     font-family: sans-serif;
-    color: #18A6ED;
 }
 
 a {
@@ -28,35 +27,41 @@ a:hover, a.active {
     position: relative;
 }
 
+
+/* Menu nav */
 #container dl {
     margin: 0 auto;
     padding-left: 0;
     margin-left: 0;
 }
 
-dt {
+nav {
+    text-align: center;
+}
+
+nav ul {
+    padding-left: 0;
+    width: 320px;
+    list-style: none;
+}
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+
+/* Menu */
+.restaurant-title {
+    color: #18A6ED;
+}
+
+.dish-title {
     line-height: 30px;
     font-weight: bold;
 }
 
-dd {
-    color: #000;
+.dish-desc {
     width: 250px;
-}
-
-
-nav {
-	text-align: center;
-}
-
-nav ul {
-	padding-left: 0;
-	width: 320px;
-	list-style: none;
-}
-nav ul li {
-	display: inline-block;
-	margin-right: 10px;
 }
 
 .menu {
