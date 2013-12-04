@@ -13,13 +13,11 @@
         , $cartridge = $('#cartridge')
         ;
 
-      for (var restaurantProp in restaurants) {
-        var restaurant = restaurants[ restaurantProp ]
-          ;
-
+      restaurants.forEach(function(restaurant) {
         $restaurantsNav.append( Handlebars.templates.restaurantNav( restaurant ) );
         $cartridge.append( Handlebars.templates.restaurant( restaurant ) );
-      }
+      });
+
       // Not zen to have this here
       $('.restaurant-nav').eq(0).addClass('active');
     }
