@@ -1,7 +1,7 @@
 (function() {
   var lunchRetriever = {
 
-    serverUrl: 'http://localhost:5000/',
+    serverUrl: 'http://vps.nandreasson.se:5000/',
 
     requestDishes: function() {
       var campus = localStorage['campus'] || 'johanneberg';
